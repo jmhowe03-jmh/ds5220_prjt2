@@ -2,14 +2,14 @@
 ## vxx4kn Jillian Howe
 
 
-In this project we took live data from my hometown in Syracuse NY and graphed the live temperature and humidity starting at 0830 EST on Wednesday, April 8th onward. I realized in the evening wednesday that I forgot to change the temperature from degrees C to degrees Fahrenheit. Although this does cause a data legibility mistake I decided not to change the underlying code or restart the program as I was already pushing it on the 72 hours of runtime requirement from this project.
+In this project we took live data from my hometown in Syracuse NY and graphed the live temperature and humidity starting at 0830 EST on Wednesday, April 8th onward. I realized in the evening wednesday that I forgot to change the temperature from degrees C to degrees Fahrenheit. Although this does cause a data legibility mistake I decided not to change the underlying code or restart the program as I was already pushing it on the 72 hours of runtime requirement from this project. All project goals are still satisfied.
 
 
 ## Overview
 
 The Weather Tracking App is an automated system that collects, saves, and displays real-time weather data. It is built using Python code that is packaged into a Docker image, ensuring the application runs exactly the same way every time. The system is managed by a Kubernetes cluster on an AWS EC2 server, which follows a schedule to run the code every 30 minutes.
 
-During each run, the app fetches weather data from an online API and saves it into DynamoDB, a database that acts as long-term memory for historical trends. To make the data useful for people, the app creates a visual graph and uploads it to Amazon S3, which hosts the image as a public website. This entire process is kept secure using IAM Roles, which give the app permission to move data between these services without needing to store risky passwords in the code.
+During each run, the app fetches weather data from an online API and saves it into DynamoDB, a database that acts as long-term memory for historical trends. To make the data useful for people, the app creates a visual graph and uploads it to Amazon S3, which hosts the image as a public website.
 
 
 ### Learning Objectives
