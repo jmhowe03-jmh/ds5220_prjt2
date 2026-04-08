@@ -1,16 +1,18 @@
 # DS5220 Data Project 2: WEATHER TRACKER 
 ## vxx4kn Jillian Howe
-Create, schedule, and run a containerized data pipeline in Kubernetes.
+
+
+In this project we took live data from my hometown in Syracuse NY and graphed the live temperature and humidity starting at 0830 EST on Wednesday, April 8th onward. I realized in the evening wednesday that I forgot to change the temperature from degrees C to degrees Fahrenheit. Although this does cause a data legibility mistake I decided not to change the underlying code or restart the program as I was already pushing it on the 72 hours of runtime requirement from this project.
+
 
 ## Overview
 
-In this project you will design, containerize, schedule, and operate a real data pipeline running inside a Kubernetes host on AWS. A working sample application is provided that tracks the International Space Station every 15 minutes, records its position and altitude in DynamoDB, and detects orbital burns when the altitude is raised significantly. You will study how that pipeline works, then build your own data application that collects data on a schedule, persists it, and publishes an evolving plot to a public S3 website.
+The Weather Tracking App is an automated system that collects, saves, and displays real-time weather data. It is built using Python code that is packaged into a Docker image, ensuring the application runs exactly the same way every time. The system is managed by a Kubernetes cluster on an AWS EC2 server, which follows a schedule to run the code every 30 minutes.
 
-Your pipeline should run for at least 72 hours, collecting at least 72 data points. Choose a data source that is updated at least hourly.
+During each run, the app fetches weather data from an online API and saves it into DynamoDB, a database that acts as long-term memory for historical trends. To make the data useful for people, the app creates a visual graph and uploads it to Amazon S3, which hosts the image as a public website. This entire process is kept secure using IAM Roles, which give the app permission to move data between these services without needing to store risky passwords in the code.
+
 
 ### Learning Objectives
-
-By the end of this project you will be able to wrangle all the elements of a working container-driven data pipeline:
 
 1. **Provision cloud infrastructure** — launch and configure an EC2 instance, attach an Elastic IP and proper IAM role/policy, and enable S3 static website hosting.
 2. **Deploy and operate Kubernetes** — install K3S, inspect cluster state with `kubectl`, and understand namespaces, pods, secrets, and jobs.
@@ -22,16 +24,14 @@ By the end of this project you will be able to wrangle all the elements of a wor
 8. **Generate and publish data visualizations** — produce an evolving time-series plot with `seaborn`, overwrite it on each pipeline run, and serve it via S3 website hosting.
 
 ---
+
 - **Open-Meteo Weather API** — fetch hourly temperature, wind speed, precipitation, or cloud cover for any lat/lon without an API key. [https://open-meteo.com/en/docs](https://open-meteo.com/en/docs)
 
 ## Deliverables
 
-Submit the following in the Canvas assignment:
+1. **Your Data Application Plot URL** — (https://vxx4kn-weather-bucket.s3.us-east-1.amazonaws.com/weather/syracuse_ny-weather.png)
 
-1. **Your Data Application Plot URL** — [the public `http://` URL to your `plot.png` served from your S3 website bucket (e.g., `http://your-bucket-name.s3-website-us-east-1.amazonaws.com/plot.png`). The plot must represent at least 72 hours / 72 entries of data. Paste the URL directly — if the image does not load it will not be graded.](https://vxx4kn-weather-bucket.s3.us-east-1.amazonaws.com/weather/syracuse_ny-weather.png)
-
-
-3. **Your Data Application Repo URL** — [the public GitHub URL to your pipeline code. The repository must include the Python script, a `Dockerfile`, and a `requirements.txt`.](https://github.com/jmhowe03-jmh/ds5220_prjt2)
+3. **Your Data Application Repo URL** — (https://github.com/jmhowe03-jmh/ds5220_prjt2)
 
 4. **Canvas Quiz** — answer the short-answer questions posted in Canvas. These will ask you to reflect on what you built, including:
     - Which data source you chose and why.
