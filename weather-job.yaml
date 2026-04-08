@@ -15,7 +15,7 @@ spec:
           restartPolicy: OnFailure
           containers:
             - name: iss-tracker
-              image: ghcr.io/jmhowe03-jmh/
+              image: ghcr.io/jmhowe03-jmh/weather-tracker:latest
               imagePullPolicy: Always
               env:
                 - name: DYNAMODB_TABLE
