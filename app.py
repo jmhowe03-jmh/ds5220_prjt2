@@ -24,7 +24,7 @@ log = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 LATITUDE   = 43.23
 LONGITUDE  = -76.14
-LOCATION_ID = "OSWEGO_NY"  # logical key stored in DynamoDB
+LOCATION_ID = "SYRACUSE_NY"  # logical key stored in DynamoDB
 
 TABLE_NAME = os.environ["DYNAMODB_TABLE"]
 S3_BUCKET  = os.environ["S3_BUCKET"]
